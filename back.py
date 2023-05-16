@@ -95,14 +95,17 @@ def avaliar_seguranca(senha):
                 pontos += 2
                 break
 
+#baseado no sitema de pontos add na variavel o nivel de sefurança junto com o sistema de cor da propia bliblioteca do PYsimpleGUI, para ser add em 2 variaveis lá no front
+
     if pontos <= 5:
-        return "Senha Fraca"
+        return "Senha Fraca", "Red"
 
     elif 5 < pontos <= 7:
-        return "Senha intermediaria"
+        return "Senha intermediaria",  "Orange"
 
     elif 7 < pontos:
-        return "Senha Forte"
+        return "Senha Forte", "Green"
+
 
         
 # Função simples onde copia a varivel de321 senha onde foi guardada a senha gerada e deixa na área de tranferencia

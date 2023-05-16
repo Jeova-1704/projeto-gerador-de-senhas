@@ -112,15 +112,8 @@ while True:
             senha_gerada = back.gerar_senha(slider_quantidade_caracteres, checkbox_maiusculo, checkbox_minusculo, checkbox_numero, checkbox_caractere)
 
             #Nivel de segurança:
-            nivel_seguranca = back.avaliar_seguranca(senha_gerada)
+            nivel_seguranca, fonte_color = back.avaliar_seguranca(senha_gerada)
 
-            # Define a cor com base no nivel de segurança:
-            if nivel_seguranca == "Senha Fraca":
-                fonte_color = 'Red'
-            elif nivel_seguranca == "Senha intermediaria":
-                fonte_color = 'Orange'
-            else:
-                fonte_color = 'Green'
 
             # Atualiza a janela e faz aparecer a senha na tela
 
