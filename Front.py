@@ -5,6 +5,8 @@ import back
 import PySimpleGUI as sg
 
 
+
+
 def tela_login():
     sg.theme('DarkGrey11')
     layout=[
@@ -31,8 +33,7 @@ def tela_principal():
         [sg.Checkbox('Caracteres Especiais (!@#)',key="-CHAR-")],
         [sg.Button('Gerar Senha',font=('Helvetica 12 bold'))],
         [sg.Text('',size=(14,1)),sg.Text(f'{senha_gerada}',font=('Helvetica 14 bold'), key='-SENHA-'),sg.Button('Copiar Senha')],
-        [sg.Text('',size=(15,1)),sg.Text('Senha Forte',text_color='Green')],
-        
+        [sg.Text('', size=(15,1)), sg.Text(f'{nivel_seguranca}', key="-SEGURANCA-",)],      
         ]
     return sg.Window('Tela Principal', layout=layout, element_justification='l',size=(500,550), finalize=True)
 
@@ -41,6 +42,7 @@ janela_login , janela_principal = tela_login(),None
 
 senha_gerada = " "
 nivel_seguranca = " "
+
 
 while True:
     Window, event, values = sg.read_all_windows()
@@ -67,10 +69,10 @@ while True:
 
         #Nivel de segurança:
         nivel_seguranca = back.avaliar_seguranca(senha_gerada)
-        
-
+    
 
         # Atualiza a janela e faz aparecer a senha na tela
+        janela_principal['-SEGURANCA-'].update(nivel_seguranca)
         janela_principal['-SENHA-'].update(senha_gerada)
         janela_principal.hide()
         janela_principal.un_hide()

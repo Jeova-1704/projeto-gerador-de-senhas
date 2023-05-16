@@ -1,5 +1,3 @@
-# Codigo feito com o POO para facilitar a execução e tratar o problema de uma forma mais simples 
-
 # Importando da bliblioteca "Strings" as 'variables' respectivas a letras minusculas, letras maisculas, numeros e caracteres especiais
 from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 # Importando o metodo choices que embaralha a senha com varios caracteres diferentes para tornala mais segura
@@ -98,13 +96,13 @@ def avaliar_seguranca(senha):
                 break
 
     if pontos <= 5:
-        return "fraca"
+        return "Senha Fraca"
 
     elif 5 < pontos <= 7:
-        return "intermediario"
+        return "Senha intermediaria"
 
     elif 7 < pontos:
-        return "Forte"
+        return "Senha Forte"
 
         
 # Função simples onde copia a varivel de321 senha onde foi guardada a senha gerada e deixa na área de tranferencia
