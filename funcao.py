@@ -6,6 +6,9 @@ from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 from random import choices
 # importando uma bliblioteca para copiar a senha para a área de tranferencia
 import pyperclip
+# importação da bliblioteca de interace grafica
+import PySimpleGUI as sg
+
 
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -113,7 +116,7 @@ class GeradorSenhas:
         elif 7 < self.__pontos:
             return 'Senha Forte'
         
-# Função simples onde copia a varivel de senha onde foi guardada a senha gerada e deixa na área de tranferencia
+# Função simples onde copia a varivel de321 senha onde foi guardada a senha gerada e deixa na área de tranferencia
     def copiar(self):
         pyperclip.copy(senha)
     
