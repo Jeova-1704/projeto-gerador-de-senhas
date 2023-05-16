@@ -113,7 +113,7 @@ class GeradorSenhas:
         elif 7 < self.__pontos:
             return 'Senha Forte'
         
-# Função simples onde copia a varivel de senha onde foi guardada a senha gerada e deixa na área de tranferencia
+# Função simples onde copia a varivel de321 senha onde foi guardada a senha gerada e deixa na área de tranferencia
     def copiar(self):
         pyperclip.copy(senha)
     
