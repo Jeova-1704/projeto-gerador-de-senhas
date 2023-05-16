@@ -30,8 +30,7 @@ def tela_principal():
         [sg.Checkbox('Números (123)',key="-NUM-")],
         [sg.Checkbox('Caracteres Especiais (!@#)',key="-CHAR-")],
         [sg.Button('Gerar Senha',font=('Helvetica 12 bold'))],
-        [sg.Text('')],
-        [sg.Text('',size=(14,1)),sg.Text(f'{senha_gerada}',font=('Helvetica 14 bold'),),sg.Button('Copiar Senha')],
+        [sg.Text('',size=(14,1)),sg.Text(f'{senha_gerada}',font=('Helvetica 14 bold'), key='-SENHA-'),sg.Button('Copiar Senha')],
         [sg.Text('',size=(15,1)),sg.Text('Senha Forte',text_color='Green')],
         
         ]
@@ -41,6 +40,7 @@ janela_login , janela_principal = tela_login(),None
 
 
 senha_gerada = " "
+nivel_seguranca = " "
 
 while True:
     Window, event, values = sg.read_all_windows()
@@ -54,9 +54,6 @@ while True:
         janela_principal.un_hide()
         
     if event == 'Gerar Senha':
-
-        # adicionar resultado da senha aqui
-        senha_gerada = "senha"
         
         # Retorno das checkbox ( True / False )
         slider_quantidade_caracteres = values['-SLIDER-']
@@ -65,6 +62,16 @@ while True:
         checkbox_numero = values['-NUM-']
         checkbox_caractere = values['-CHAR-']
 
+        # adicionar resultado da senha aqui
+        senha_gerada = back.gerar_senha(slider_quantidade_caracteres, checkbox_maiusculo, checkbox_minusculo, checkbox_numero, checkbox_caractere)
+
+        #Nivel de segurança:
+        nivel_seguranca = back.avaliar_seguranca(senha_gerada)
+        
+
+
+        # Atualiza a janela e faz aparecer a senha na tela
+        janela_principal['-SENHA-'].update(senha_gerada)
         janela_principal.hide()
         janela_principal.un_hide()
 

@@ -26,10 +26,10 @@ def gerar_senha(num_caracteres, letras_maiusculas, letras_minusculas, numeros, s
 
     if simbolos:
         combinacao += punctuation
-
+    num_caracteres = int(num_caracteres)
     senha = ''.join(choices(combinacao, k=num_caracteres))
 
-    return senha
+    return str(senha)
 
 # Avalia o nivel de segurança de uma senha baseada em um sistema de pontuação de 0 a 10, onde 10 é uma senha muito boa e 0 uma senha facil de ser quebrada
 #Sitema funciona avaliando em ordem: o tamanho da senha -> se ela tem letras minusculas -> se ela tem letras maisculas -> se ela tem caracteres especiais -> se tem números
@@ -98,11 +98,14 @@ def avaliar_seguranca(senha):
                 break
 
     if pontos <= 5:
-        return 'Senha Fraca'
+        return "fraca"
+
     elif 5 < pontos <= 7:
-        return 'Senha Intermediaria'
+        return "intermediario"
+
     elif 7 < pontos:
-        return 'Senha Forte'
+        return "Forte"
+
         
 # Função simples onde copia a varivel de321 senha onde foi guardada a senha gerada e deixa na área de tranferencia
 def copiar(senha):
