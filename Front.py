@@ -1,8 +1,8 @@
+
+# Importando Backend 
 import funcao
-
+# Importando PySimpleGui
 import PySimpleGUI as sg
-
-
 
 
 def tela_login():
@@ -21,7 +21,7 @@ def tela_principal():
     sg.theme('DarkGrey11')
     layout=[
         [sg.HSeparator(),sg.Text('Gerador de Senha',font='Helvetica 16 bold'),sg.HSeparator()],
-        [sg.Text(f'Olá {nome_usuario}',font='Helvetica 10 bold')],
+        [sg.Text(f'Olá {nome_usuario}',font='Helvetica 12 bold',text_color='LightBlue')],
     ]
     return sg.Window('Tela Principal', layout=layout, element_justification='c',size=(500,550), finalize=True)
 
@@ -29,7 +29,7 @@ def tela_principal():
 
 
 janela_login , janela_principal = tela_login(),None
-nome_usuario = Values['-usuario-']
+
 
 
 while True:
@@ -39,6 +39,7 @@ while True:
         break
 
     if event == "Entrar":
+        nome_usuario = values['-usuario-']
         janela_login.hide()
         janela_principal = tela_principal()
         janela_principal.un_hide()
