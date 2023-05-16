@@ -4,6 +4,8 @@ import back
 # Importando PySimpleGui
 import PySimpleGUI as sg
 
+# criando layout da janela de login
+
 def tela_login():
     sg.theme('DarkGrey11')
     layout=[
@@ -11,19 +13,28 @@ def tela_login():
     [sg.Text("",size=(10,5))],
     [sg.Text("Usuário :",font="Helvetica 15 bold"),sg.InputText(" ",size=(20,1),key='-usuario-')],
     [sg.Text("Senha :",font="Helvetica 15 bold"),sg.InputText(" ",size=(20,1))],
+    [sg.Checkbox('Usar Tema Claro',key="-TEMA_CLARO-")],
     [sg.Text("",size=(10,2))],
     [sg.Button("Entrar",font="helvetica 10 bold"),sg.Button("Sair",button_color="Red",font="helvetica 10 bold",size=(5,1))],
     ]
     return sg.Window('Tela Login', layout=layout, element_justification='c',size=(500,350), finalize=True)
 
+# criando layout da janela principal
+
 def tela_principal():
-    sg.theme('DarkGrey11')
-    coluna = [sg.Text('',size=(10,1)),sg.Text(f'{senha_gerada}',background_color="#1C1C1C",size=(20,3),auto_size_text=True,font=('Helvetica 14 bold'), key='-SENHA-'),sg.Button('Copiar Senha',font="Helvetica 10 bold")]
+    tema_claro = values["-TEMA_CLARO-"]
+    if tema_claro:
+        sg.theme('Lightblue')
+        coluna = [sg.Text(f'{senha_gerada}',text_color="#1C1C1C",background_color="#4682B4",pad=((75,0),(20,0)),size=(20,3),auto_size_text=True,font=('Helvetica 14 bold'), key='-SENHA-'),sg.Button('Copiar Senha',pad=((5,0),(16,0)),font="Helvetica 10 bold")]
+    else:
+        sg.theme('DarkGrey11')
+        coluna = [sg.Text(f'{senha_gerada}',background_color="#1C1C1C",pad=((75,0),(20,0)),size=(20,3),auto_size_text=True,font=('Helvetica 14 bold'), key='-SENHA-'),sg.Button('Copiar Senha',pad=((5,0),(16,0)),font="Helvetica 10 bold")]
+    coluna_slider = [sg.Text('Quantidade de caracteres:',font=("Helvetica 12"),pad=((0, 0), (16, 0))),sg.Slider(range=(1, 50), orientation='h', size=(20,20), border_width=(3),default_value=50,key=('-SLIDER-'))]
+    
     layout=[
         [sg.HSeparator(),sg.Text('Gerador de Senha',font='Helvetica 16 bold'),sg.HSeparator()],
-        [sg.Text(f'Olá {nome_usuario} !',font='Helvetica 12 bold',text_color='LightBlue')],
-        [sg.Text(' ')],
-        [sg.Text('Quantidade de caracteres:',font=("Helvetica 12")),sg.Slider(range=(1, 50), orientation='h', size=(20,20), default_value=50,key=('-SLIDER-'))],
+        [sg.Text(f'Olá {nome_usuario} !',font='Helvetica 12 bold',pad=(190,1))],
+        [coluna_slider],
         [sg.Text('')],
         [sg.Checkbox('Letras Maiúsculas (ABC)',key="-MAIUSC-")],
         [sg.Checkbox('Letras Minúsculas (abc)',key="-MINUSC-")],
@@ -31,14 +42,15 @@ def tela_principal():
         [sg.Checkbox('Caracteres Especiais (!@#)',key="-CHAR-")],
         [sg.Button('Gerar Senha',font=('Helvetica 12 bold'))],
         [coluna],
-        [sg.Text('', size=(10,1)), sg.Text(f'{nivel_seguranca}', key="-SEGURANCA-", justification='center')], 
-        [sg.Button("Voltar",pad=(5,20),font="Helvetica 10 bold"),sg.Button("Sair",font="Helvetica 10 bold",button_color="Red",pad=(3,20))]     
+        [sg.Text(f'{nivel_seguranca}', key="-SEGURANCA-", justification='center',pad=((73,0),(0,0)))], 
+        [sg.Button("Voltar",pad=((5,0),(20,0)),font="Helvetica 10 bold"),sg.Button("Sair",font="Helvetica 10 bold",size=(5,1),button_color="Red",pad=((10,0),(20,0)))]     
         ]
     return sg.Window('Gerador de Senhas', layout=layout, element_justification='l',size=(500,500), finalize=True)
 
+# definindo os valores das janelas iniciais
 janela_login , janela_principal = tela_login(),None
 
-
+# valores da senha gerada e o seu respectivo nivel de seguranca (ainda nao foram criados)
 senha_gerada = " "
 nivel_seguranca = " "
 
@@ -64,6 +76,11 @@ while True:
         # encerrando o programa
         if confirmacao_sair == "OK":
             break
+    # o que acontece ao clicar no botao "Voltar"
+    if event == "Voltar":
+        janela_principal.hide()
+        janela_login.un_hide()
+
 
     # o que acontece ao clicar no botão "Gerar Senha" na janela principal
     if event == 'Gerar Senha' and Window==janela_principal:
