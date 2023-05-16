@@ -6,6 +6,9 @@ from string import ascii_lowercase, ascii_uppercase, digits, punctuation
 from random import choices
 # importando uma bliblioteca para copiar a senha para a área de tranferencia
 import pyperclip
+# importação da bliblioteca de interace grafica
+import PySimpleGUI as sg
+
 
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
