@@ -33,7 +33,7 @@ def tela_principal():
         [sg.Checkbox('Caracteres Especiais (!@#)',key="-CHAR-")],
         [sg.Button('Gerar Senha',font=('Helvetica 12 bold'))],
         [sg.Text('',size=(14,1)),sg.Text(f'{senha_gerada}',font=('Helvetica 14 bold'), key='-SENHA-'),sg.Button('Copiar Senha')],
-        [sg.Text('', size=(15,1)), sg.Text(f'{nivel_seguranca}', key="-SEGURANCA-",)],      
+        [sg.Text('', size=(15,1)), sg.Text(f'{nivel_seguranca}', key="-SEGURANCA-", justification='center')],      
         ]
     return sg.Window('Tela Principal', layout=layout, element_justification='l',size=(500,550), finalize=True)
 
@@ -69,10 +69,17 @@ while True:
 
         #Nivel de segurança:
         nivel_seguranca = back.avaliar_seguranca(senha_gerada)
-    
+
+        # Define a cor com nase no nivel de segurança:
+        if nivel_seguranca == "Senha Fraca":
+            fonte_color = 'Red'
+        elif nivel_seguranca == "Senha intermediaria":
+            fonte_color = 'Orange'
+        else:
+            fonte_color = 'Green'
 
         # Atualiza a janela e faz aparecer a senha na tela
-        janela_principal['-SEGURANCA-'].update(nivel_seguranca)
+        janela_principal['-SEGURANCA-'].update(nivel_seguranca, text_color = fonte_color)
         janela_principal['-SENHA-'].update(senha_gerada)
         janela_principal.hide()
         janela_principal.un_hide()
