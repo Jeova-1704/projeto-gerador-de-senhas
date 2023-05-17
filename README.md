@@ -10,7 +10,7 @@
 
 
 
-Este é um programa desenvolvido por Jeova Bezerra ([@Jeova-1704](https://github.com/Jeova-1704)) e Pierre Monteiro ([@pierreOF](https://github.com/pierreOF)) para gerar senhas aleatórias com base nas preferências do usuário. O código foi implementado utilizando programação orientada a objetos (POO) em Python.
+Este é um programa desenvolvido por Jeova Bezerra ([@Jeova-1704](https://github.com/Jeova-1704)) e Pierre Monteiro ([@pierreOF](https://github.com/pierreOF)) para gerar senhas aleatórias com base nas preferências do usuário. O código foi implementado utilizando programação orientada a objetos (POO) em Python, o mesmo sendo transformado em um arquivo executável(.exe) para instalar e testar em sua maquina.
 
 ## Funcionalidades:
 <h4>O programa possui as seguintes funcionalidades:</h4>
@@ -71,6 +71,7 @@ Este é um programa desenvolvido por Jeova Bezerra ([@Jeova-1704](https://github
   
 ## Considerações finais
 <h4>A interface de usuário do Gerador de Senhas foi desenvolvida utilizando programação orientada a objetos (POO) para organizar e estruturar o código. Essa abordagem permite uma melhor separação de responsabilidades e facilita a manutenção e extensão do programa.</h4>
+<h4>Junto com os arquivos do projeto segue um arquivo executavél do mesmo, para caso de você não tenha o python instalado me sua maquina ou deseja ter o nosso projeto em seu computador.</h4>
   
   
   
