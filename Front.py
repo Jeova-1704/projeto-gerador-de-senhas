@@ -110,18 +110,12 @@ while True:
             checkbox_caractere = values['-CHAR-']
 
             # adicionar resultado da senha aqui
-            senha_gerada = back.gerar_senha(slider_quantidade_caracteres, checkbox_maiusculo, checkbox_minusculo, checkbox_numero, checkbox_caractere)
+            gerador_senha = back.GeradorSenha(slider_quantidade_caracteres, checkbox_maiusculo, checkbox_minusculo, checkbox_numero, checkbox_caractere)
+            senha_gerada = gerador_senha.gerar_senha()
 
             #Nivel de segurança:
-            nivel_seguranca = back.avaliar_seguranca(senha_gerada)
+            nivel_seguranca, fonte_color = gerador_senha.avaliar_seguranca(senha_gerada)
 
-            # Define a cor com base no nivel de segurança:
-            if nivel_seguranca == "Senha Fraca":
-                fonte_color = 'Red'
-            elif nivel_seguranca == "Senha intermediaria":
-                fonte_color = 'Orange'
-            else:
-                fonte_color = 'Green'
 
             # Atualiza a janela e faz aparecer a senha na tela
 
@@ -141,5 +135,7 @@ while True:
         if senha_gerada == " ":
             sg.popup_ok("você ainda não gerou uma senha !")
         else:
-            back.copiar(senha_gerada)
+            back.GeradorSenha.copiar(senha_gerada)
             sg.popup_ok("Senha copiada para a área de transferência ✔")
+
+
