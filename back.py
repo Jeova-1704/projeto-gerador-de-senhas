@@ -86,7 +86,7 @@ class GeradorSenha:
                     pontos += 2
                     break
 
-        elif len(senha) > 10:
+        elif 10 < len(senha) < 15:
             pontos += 2
             for carac in senha:
                 if carac in ascii_lowercase:
@@ -106,6 +106,9 @@ class GeradorSenha:
                 if carac in digits:
                     pontos += 2
                     break
+        else:
+            pontos += 8
+
 
         if pontos <= 5:
             return "Senha Fraca", "Red"
