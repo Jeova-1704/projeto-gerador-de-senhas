@@ -5,6 +5,7 @@ import PySimpleGUI as sg
 
 # criando layout da janela de login
 
+
 def tela_login():
     try:
         if tema_escolhido:
@@ -53,7 +54,7 @@ janela_login , janela_principal = tela_login(),None
 
 # valores da senha gerada e o seu respectivo nivel de seguranca (ainda nao foram criados)
 senha_gerada = " "
-nivel_seguranca = " "
+nivel_seguranca = ""
 
 # iniciando programa aqui
 while True:
@@ -142,5 +143,3 @@ while True:
         else:
             back.copiar(senha_gerada)
             sg.popup_ok("Senha copiada para a área de transferência ✔")
-
-
