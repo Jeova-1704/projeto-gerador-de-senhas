@@ -74,15 +74,3 @@ Este é um programa desenvolvido por Jeova Bezerra ([@Jeova-1704](https://github
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
