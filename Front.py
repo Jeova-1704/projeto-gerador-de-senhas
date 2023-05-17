@@ -3,8 +3,9 @@ import back
 # Importando PySimpleGui
 import PySimpleGUI as sg
 
-# criando layout da janela de login
+import PyInstaller 
 
+# criando layout da janela de login
 
 def tela_login():
     try:
@@ -12,6 +13,7 @@ def tela_login():
             sg.theme('LightBlue3')
     except:
         sg.theme('DarkGrey11')
+
     layout=[
     [sg.HSeparator(),sg.Text('Login Gerador de Senhas',font='Helvetica 16 bold'),sg.HSeparator()],
     [sg.Text("Usuário",font="Helvetica 15 bold",pad=((0,0),(50,0))),sg.InputText("Admin",size=(20,1),pad=((8,0),(50,0)),key='-usuario-')],
@@ -55,6 +57,8 @@ janela_login , janela_principal = tela_login(),None
 # valores da senha gerada e o seu respectivo nivel de seguranca (ainda nao foram criados)
 senha_gerada = " "
 nivel_seguranca = ""
+icone = 'D:\Projetos_Python\Projeto_Gerador_Senhas\projeto-gerador-de-senhas\LOGO_GS.ICO'
+janela_login.set_icon(icone)
 
 # iniciando programa aqui
 while True:
@@ -80,6 +84,7 @@ while True:
             janela_login.hide()
             janela_principal = tela_principal()
             janela_principal.un_hide()
+            janela_principal.set_icon(icone)
         else:
             sg.popup_ok("Usuario Incorreto")
     
