@@ -3,8 +3,6 @@ import back
 # Importando PySimpleGui
 import PySimpleGUI as sg
 
-import PyInstaller 
-
 # criando layout da janela de login
 
 def tela_login():
